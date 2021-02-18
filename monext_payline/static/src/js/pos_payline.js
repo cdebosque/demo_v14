@@ -4,12 +4,15 @@ var core    = require('web.core');
 var rpc    = require('web.rpc');
 //var screens = require('point_of_sale.screens');
 var screens = require('point_of_sale.PaymentScreen');
-var gui     = require('point_of_sale.gui');
+var gui     = require('point_of_sale.Gui');
 var pos_model = require('point_of_sale.models');
+//var gui     = require('point_of_sale.gui');
+//var pos_model = require('point_of_sale.models');
 
 var _t      = core._t;
 
-var PopupWidget = require('point_of_sale.popups');
+//var PopupWidget = require('point_of_sale.popups');
+var PopupWidget = require('point_of_sale.Popups');
 var PaymentScreenWidget = screens.PaymentScreenWidget;
 
 pos_model.load_fields("account.journal", "monext_payline_pos_configuration_id");
