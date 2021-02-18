@@ -52,7 +52,7 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"></field>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='amount_authorized']" position="after">
+                <xpath expr="//notebook[last()]" position="inside">
                     <group  attrs="{'invisible': [('type', '!=', 'bank')]}">
                         <field name="monext_payline_pos_configuration_id"/>
                     </group>
