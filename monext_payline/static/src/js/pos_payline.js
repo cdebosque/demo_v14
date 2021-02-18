@@ -12,7 +12,7 @@ var pos_model = require('point_of_sale.models');
 var _t      = core._t;
 
 //var PopupWidget = require('point_of_sale.popups');
-var PopupWidget = require('point_of_sale.Popups');
+var PopupWidget = require('point_of_sale.PopupControllerMixin');
 var PaymentScreenWidget = screens.PaymentScreenWidget;
 
 pos_model.load_fields("account.journal", "monext_payline_pos_configuration_id");
