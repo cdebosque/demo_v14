@@ -65,7 +65,7 @@
             <field name="model">account.journal</field>
             <field name="inherit_id" ref="point_of_sale.view_account_bank_journal_form_inherited_pos"></field>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='inbound_payment_method_ids']" position="after">
+                <xpath expr="//field[@name='default_account_id']" position="after">
                     <field name="monext_payline_pos_configuration_id" attrs="{'invisible': [('journal_user', '=', False)]}"/>
                 </xpath>
             </field>
