@@ -2,7 +2,8 @@ odoo.define('pos_payline.pos_payline', function (require) {
 
 var core    = require('web.core');
 var rpc    = require('web.rpc');
-var screens = require('point_of_sale.screens');
+//var screens = require('point_of_sale.screens');
+var screens = require('point_of_sale.PaymentScreen');
 var gui     = require('point_of_sale.gui');
 var pos_model = require('point_of_sale.models');
 
