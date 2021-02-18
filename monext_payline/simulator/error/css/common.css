@@ -1,0 +1,24 @@
+#banImgDiv {
+	text-align:center;
+	width:100%;
+}
+
+#banImg {
+	text-align:center;
+}
+
+.footerStandardDiv {
+	margin: auto;
+}
+
+#footerNepting {
+	float:right;
+	font-size:10px;
+	color:grey;
+}
+
+.footerImgDiv {
+	margin: auto;
+	text-align:center;
+	margin-top: -15px;
+}

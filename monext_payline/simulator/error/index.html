@@ -1,0 +1,86 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Nepting webTPE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/ticket.css" rel="stylesheet">
+<link href="css/common.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+<div class="row">
+	<div class="col-sm-12" id="banImgDiv">
+		<img id="banImg" src= >
+	</div>
+</div>
+
+<div class="row">
+	<div class="bs-callout bs-callout-info centeredDiv">
+		<h4>Vous allez être redirigé automatiquement sur le site commerçant dans 30 secondes...</h4>
+	</div>
+	<div class="mainCenteredDiv" >
+		<div class="mainStandardBorderDiv" >
+			<div class="centeredDiv">
+				<h3>PAIEMENT REFUSE</h3>
+			</div>
+	
+			<div class="row"></div>
+			<form class="form-horizontal" id="userPageForm" action="http://preprod-odoo.lulli.comaite.com/pos_payline/receive_transaction_refused" method="post">
+				<fieldset>
+					<div id="ticketDiv" class="well">
+                    	Ticket non disponible
+					</div>
+					<div class="form-group">
+						<div class="centeredDiv">
+							<button class="btn btn-success" name="payButton" type="submit">Revenir sur le site commerçant</button>
+						</div>
+					</div>
+					<input type="hidden" name="nep_MerchantID" value=MjU2XzcwMzQxNDY2>			
+					<input type="hidden" name="nep_TransactionID" value=null>			
+					<input type="hidden" name="nep_Result" value=RXJyb3I=>			
+					<input type="hidden" name="nep_ExtendedResult" value=null>			
+					<input type="hidden" name="nep_MerchantReference" value=null>			
+					<input type="hidden" name="nep_SystemDateTime" value=null>			
+					<input type="hidden" name="nep_Amount" value=null>			
+					<input type="hidden" name="nep_APIVersion" value=null>			
+					<input type="hidden" name="nep_PaymentScheme" value=null>			
+					<input type="hidden" name="nep_RealisationMode" value=null>			
+					<input type="hidden" name="nep_Ticket" value=VGlja2V0IG5vbiBkaXNwb25pYmxl>	
+					<input type="hidden" name="nep_Email" value=null>		
+					<input type="hidden" name="nep_Sign" value=TlItDZF0LJWBEPoVTlTGhYan4nPmV4+u2IaHq1zlur8=>			
+				</fieldset>
+			</form>
+		</div>
+		<div class="col-sm-12 footerStandardDiv">
+			<p id="footerNepting">Powered by Nepting</p>
+		</div>
+	</div>
+	
+	<div class="col-sm-12 footerImgDiv">
+		<img src="logoNepting200.png">
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+$( document ).ready(function() {
+	window.setTimeout(function() {$('#userPageForm').submit();}, 30000);
+	
+	var banImgSrc = $("#banImg").attr("src");
+	if (banImgSrc === "") {
+		$("#banImgDiv").css("height", "0px");
+		$("#banImgDiv").text("");
+	}
+});
+
+</script>
+</body>
+</html>

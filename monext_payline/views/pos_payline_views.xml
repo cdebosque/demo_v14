@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <menuitem parent="point_of_sale.menu_point_config_product" name="Payline POS" id="menu_pos_payline" groups="point_of_sale.group_pos_manager" sequence="40"/>
+
+        <record id="view_pos_payline_configuration_form" model="ir.ui.view" >
+            <field name="name">Payline POS Configuration</field>
+            <field name="model">monext_payline.pos_configuration</field>
+            <field name="arch" type="xml">
+                <form string="Configuration">
+                    <sheet>
+                         <group col="2">
+                            <field name="name"/>
+                            <field name="merchant_id"/>
+                            <field name="mode"/>
+                            <field name="secret_key"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_pos_payline_configuration_tree" model="ir.ui.view">
+            <field name="name">Payline POS Configuration</field>
+            <field name="model">monext_payline.pos_configuration</field>
+            <field name="arch" type="xml">
+                <tree string="Configuration">
+                    <field name="name"/>
+                    <field name="merchant_id"/>
+                    <field name="mode"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pos_payline_tpe_form" model="ir.ui.view" >
+            <field name="name">Payline POS TPE</field>
+            <field name="model">monext_payline.pos_tpe</field>
+            <field name="arch" type="xml">
+                <form string="TPE">
+                    <sheet>
+                         <group col="2">
+                            <field name="name"/>
+                            <field name="number"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_account_journal_pos_user_form_inherited_pos_payline" model="ir.ui.view">
+            <field name="name">POS Journal</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_journal_pos_user_form"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='amount_authorized']" position="after">
+                    <group  attrs="{'invisible': [('type', '!=', 'bank')]}">
+                        <field name="monext_payline_pos_configuration_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_bank_journal_form_inherited_pos_payline" model="ir.ui.view">
+            <field name="name">account.bank.journal.form.inherited.pos.payline</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="point_of_sale.view_account_bank_journal_form_inherited_pos"></field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='journal_user']" position="after">
+                    <field name="monext_payline_pos_configuration_id" attrs="{'invisible': [('journal_user', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_pos_payline_tpe_tree" model="ir.ui.view">
+            <field name="name">Payline POS TPE</field>
+            <field name="model">monext_payline.pos_tpe</field>
+            <field name="arch" type="xml">
+                <tree string="TPE">
+                    <field name="name"/>
+                    <field name="number"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="action_pos_payline_configuration_form" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monext_payline.pos_configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to configure your POS Configuration.
+              </p>
+            </field>
+        </record>
+
+        <menuitem parent="menu_pos_payline" action="action_pos_payline_configuration_form" id="menu_pos_payline_configuration" groups="point_of_sale.group_pos_manager" sequence="10"/>
+
+
+        <record id="action_pos_payline_tpe_form" model="ir.actions.act_window">
+            <field name="name">TPE</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monext_payline.pos_tpe</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to configure your POS TPE.
+              </p>
+            </field>
+        </record>
+
+        <menuitem parent="menu_pos_payline" action="action_pos_payline_tpe_form" id="menu_pos_payline_tpe" groups="point_of_sale.group_pos_manager" sequence="20"/>
+
+
+
+
+    </data>
+</odoo>

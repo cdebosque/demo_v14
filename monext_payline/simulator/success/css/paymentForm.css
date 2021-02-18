@@ -1,0 +1,169 @@
+
+.divContainer {
+	width:655px; 
+	margin:auto; 
+	margin-top:10px;
+}
+
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+div#alertSecurityDiv {
+	margin-bottom:0px;
+}
+
+#greenCadenasImg {
+	margin-top: -5px;
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.alert-success {
+	color: #468847;
+	background-color: #dff0d8;
+	border-color: #468847;
+}
+
+.alert-warning {
+	padding: 5px;
+	margin-bottom: 10px;
+}
+
+.leftStandardDiv {
+	border-collapse: separate;
+	border-spacing: 1px;
+	border-color: gray;
+	border-style: solid;
+	border-width: 2px;
+
+	margin: auto;
+	width: 215px;
+	height: 471px;
+	padding: 5px 5px 5px 5px;
+	float:left;
+}
+
+.leftLittleDiv {
+	border-collapse: separate;
+	border-spacing: 1px;
+	border-color: gray;
+	border-style: solid;
+	border-width: 1px;
+	
+	text-align:left;
+	margin: auto;
+	width: 195px;
+	padding: 5px 5px 5px 5px;
+}
+
+.littleDivMargin {margin-left: 5px;}
+
+.hr10 {
+	margin-bottom:10px;
+	margin-top:10px;
+}
+
+.hr20 {
+	margin-bottom:20px;
+	margin-top:20px;
+}
+
+.mainStandardDiv {
+	margin: auto;
+	margin-left: 10px;
+	width: 430px;
+	float:left;
+}
+
+.mainStandardBorderDiv {
+	border-collapse: separate;
+	border-spacing: 1px;
+	border-color: gray;
+	border-style: solid;
+	border-width: 2px;
+	padding: 5px 20px 5px 20px;
+}
+
+.centeredDiv {
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: center;
+}
+
+h3 {
+	display: block;
+	font-size: 1.5em;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+.marginDivPicto {
+	margin-left: 2%;
+}
+
+.marginDivPictoLabel {
+	margin-left: 3%;
+}
+
+.labelWidth {
+	width: 16.33333333332%;
+}
+
+.labelPaymentRadio {
+	font-size: 9px;
+	font-weight: normal;
+	margin-left: -140%;
+}
+
+.boldTextDiv {
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+#selectPaymentMonth {
+	height: 30px;
+	margin-left: 3px;
+}
+
+#selectPaymentYear {
+	height: 30px;
+	margin-left: -14px;
+}
+
+/************************************* POPOVER *************************************************/
+.popover  h3{
+	color: #0088cc;
+}
+
+.popover {
+	display: table !important;
+	top: -265px !important;
+	left: -230px !important;
+	width: 500px !important;
+	min-width: 500px !important;
+	font-size: 12px;
+	font-weight: normal;
+	color: black;
+}
+
+.popover-options {
+	margin-left: -15px;
+	margin-top: 3px;
+}
+
+a#cvvHelp{
+	font-weight: bold;
+	font-size: 16px;
+	
+}
+
+a#cvvHelp:hover {
+	cursor: pointer;
+	text-decoration: none;
+}

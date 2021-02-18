@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_payline_configuration,payline.pos_configuration,model_monext_payline_pos_configuration,point_of_sale.group_pos_manager,1,1,1,1
+access_pos_payline_tpe,payline.pos_tpe,model_monext_payline_pos_tpe,point_of_sale.group_pos_manager,1,1,1,1
+access_web_payline_configuration,payline.web_configuration,model_monext_payline_web_configuration,account.group_account_manager,1,1,1,1

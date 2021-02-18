@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<templates id="template" inherit_id="point_of_sale.template">
+  <t t-name="PosPaylineTransactionPopupWidget">
+    <div class="modal-dialog">
+      <div class="popup pos-payline">
+        <p class="title">Electronic Payment</p>
+        <p class="body">
+            <iframe t-att-src="widget.options.choose_tpe_url" width="700" height="450" csp="frame-src *;"/>
+        </p>
+      </div>
+    </div>
+  </t>
+
+  <t t-extend="PaymentScreen-Paymentlines">
+    <t t-jquery=".col-name" t-operation="inner">
+      <t t-if="line.cashregister.journal.type === 'bank'">
+        <t t-if="line.payline_swipe_pending">
+          <div>WAITING FOR SWIPE</div>
+        </t>
+        <t t-if="!line.payline_swipe_pending">
+          <t t-esc='line.name' />
+        </t>
+      </t>
+      <t t-if="line.cashregister.journal.type !== 'bank'">
+        <t t-esc='line.name' />
+      </t>
+    </t>
+    <t t-jquery="tbody tr.paymentline.selected">
+      this.removeAttr('class');
+      this.attr('t-attf-class', 'paymentline selected #{line.payline_swipe_pending ? \'o_pos_payline_swipe_pending\' : \'\'}');
+    </t>
+    <t t-jquery="tbody tr.paymentline[t-att-data-cid*='line.cid']">
+      this.removeAttr('class');
+      this.attr('t-attf-class', 'paymentline #{line.payline_swipe_pending ? \'o_pos_payline_swipe_pending\' : \'\'}');
+    </t>
+    <t t-jquery="tbody tr td.col-tendered.edit">
+      this.removeAttr('class');
+      this.attr('t-attf-class', 'col-tendered edit #{line.payline_swipe_pending ? \'o_pos_payline_swipe_pending\' : \'\'}');
+    </t>
+  </t>
+
+</templates>

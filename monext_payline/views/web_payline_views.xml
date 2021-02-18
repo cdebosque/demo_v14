@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <menuitem parent="account.menu_finance_configuration" name="Payline Web" id="menu_web_payline" groups="account.group_account_manager" sequence="40"/>
+
+
+        <record id="view_web_payline_configuration_form" model="ir.ui.view" >
+            <field name="name">Payline Web Configuration</field>
+            <field name="model">monext_payline.web_configuration</field>
+            <field name="arch" type="xml">
+                <form string="Configuration">
+                    <sheet>
+                         <group col="2">
+                            <field name="name"/>
+                            <field name="endpoint_base_url"/>
+                            <field name="backend_type"/>
+                            <field name="access_token"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_web_payline_configuration_tree" model="ir.ui.view">
+            <field name="name">Payline Web Configuration</field>
+            <field name="model">monext_payline.web_configuration</field>
+            <field name="arch" type="xml">
+                <tree string="Configuration">
+                    <field name="name"/>
+                    <field name="endpoint_base_url"/>
+                    <field name="backend_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_web_payline_configuration_form" model="ir.actions.act_window">
+            <field name="name">Configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">monext_payline.web_configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to configure your Web Configuration.
+              </p>
+            </field>
+        </record>
+
+        <menuitem parent="menu_web_payline" action="action_web_payline_configuration_form" id="menu_web_payline_configuration" groups="account.group_account_manager" sequence="10"/>
+
+
+    </data>
+</odoo>

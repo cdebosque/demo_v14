@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="assets" inherit_id="point_of_sale.assets">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/monext_payline/static/src/js/pos_payline.js"></script>
+                <link rel="stylesheet" href="/monext_payline/static/src/css/pos_payline.css" />
+            </xpath>
+        </template>
+        
+    </data>
+</odoo>

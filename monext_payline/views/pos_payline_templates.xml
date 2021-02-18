@@ -1,0 +1,60 @@
+<odoo>
+    
+    <template id="pos_payline_nepting_tpe_choice" name="Nepting TPE Choice">
+        <form id="pos-payline-nepting-tpe-choice" method="POST" t-att-action="url">
+            <div style="text-align:center">
+                <div>
+                    <span>Choose Your Tpe</span>
+                </div>
+                <div>
+                    <select name="tpe">
+                    <t t-foreach="idxs" t-as="idx">
+                        <option t-att-value="tpe_numbers[idx]" t-att-selected="tpe_numbers[idx] == tpe_selected">
+                            <t t-esc="tpe_names[idx]"/>
+                        </option>
+                    </t>
+                    </select>
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <t t-if="is_simulation">
+                        <div>
+                            <span>This url is settable only for simulation mode</span>
+                        </div>
+                        <input type="text" name="endpoint_url" value="http://127.0.0.1:8308/success/index.html"/>
+                    </t>
+                </div>
+                <div>
+                    <input type="submit" value="Continue"/>
+                </div>
+            </div>
+        </form>
+    </template>
+    
+    <template id="pos_payline_nepting_init_transaction" name="Nepting Init Transaction">
+        <form id="pos-payline-nepting-init-transaction" method="POST" t-att-action="url">
+            <t t-foreach="idxs" t-as="idx">
+                <input type="hidden" t-att-name="param_keys[idx]" t-att-value="param_values[idx]"/>
+            </t>
+            <!--<t t-if="is_simulation">
+                <input type="submit"/>
+            </t>
+            <t t-if="not is_simulation">-->
+                <script type="text/javascript">
+                    document.getElementById('pos-payline-nepting-init-transaction').submit();
+                </script>
+            <!--</t>-->
+        </form>
+    </template>
+    
+    <template id="pos_payline_nepting_receive_transaction_success" name="Nepting Receive Transaction Success">
+        <script type="text/javascript">
+            window.parent.postMessage("success", "<t t-esc="domain"/>");
+        </script>
+    </template>
+    
+    <template id="pos_payline_nepting_receive_transaction_failed" name="Nepting Receive Transaction Failed">
+        <script type="text/javascript">
+            window.parent.postMessage("failed", "<t t-esc="domain"/>");
+        </script>
+    </template>
+    
+</odoo>
